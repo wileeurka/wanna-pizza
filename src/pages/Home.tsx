@@ -1,5 +1,4 @@
 import React from "react";
-import {  useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../redux/storeTypes";
 import Categories from "../app/Categories";
@@ -15,16 +14,10 @@ import {
 import { fetchPizzas, pizzaDataSelector } from "../redux/slices/pizzaSlice";
 
 const Home: React.FC = () => {
-  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-
-  const { categoryId, currentPage, sort, searchValue } =
-    useSelector(filtertSelector);
+  const { categoryId, currentPage, sort, searchValue } = useSelector(filtertSelector);
   const { items, status } = useSelector(pizzaDataSelector);
-
-  // // Проверяем роль пользователя
-  // const { isAdmin } = useSelector((state: any) => state.auth); // Подключаем состояние isAdmin
 
   const onClickCategory = (id: number) => {
     dispatch(setCategoryId(id));
@@ -34,30 +27,30 @@ const Home: React.FC = () => {
     dispatch(setCurrentPage(number));
   };
 
-  const getPizzas = async () => {
-    const order = sort.sortProperty.includes("-") ? "desc" : "asc";
-    const sortBy = sort.sortProperty.replace("-", "");
-    const category = categoryId !== 0 ? `&category=${categoryId}` : "";
-    const search = searchValue ? `&search=${searchValue}` : "";
-
-    try {
-      dispatch(
-        fetchPizzas({
-          order,
-          sortBy,
-          category,
-          search,
-          currentPage: String(currentPage),
-        })
-      );
-    } catch (error) {
-      console.error("Error fetching pizzas:", error);
-    }
-  };
-
   React.useEffect(() => {
+    const getPizzas = async () => {
+      const order = sort.sortProperty.includes("-") ? "desc" : "asc";
+      const sortBy = sort.sortProperty.replace("-", "");
+      const category = categoryId !== 0 ? `&category=${categoryId}` : "";
+      const search = searchValue ? `&search=${searchValue}` : "";
+
+      try {
+        dispatch(
+          fetchPizzas({
+            order,
+            sortBy,
+            category,
+            search,
+            currentPage: String(currentPage),
+          })
+        );
+      } catch (error) {
+        console.error("Error fetching pizzas:", error);
+      }
+    };
+
     getPizzas();
-  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+  }, [categoryId, sort.sortProperty, searchValue, currentPage, dispatch]);
 
   const pizzas = Array.isArray(items)
     ? items.map((obj: any) => (
@@ -84,9 +77,7 @@ const Home: React.FC = () => {
           <p>Don't get upset! Try to find another one.</p>
         </div>
       ) : (
-        <div className="content__items">
-          {status === "loading" ? skeleton : pizzas}
-        </div>
+        <div className="content__items">{status === "loading" ? skeleton : pizzas}</div>
       )}
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>

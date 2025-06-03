@@ -26,7 +26,7 @@ const FullPizza: React.FC = () => {
       }
     }
     fetchPizza();
-  }, [id]);
+  }, [id, navigate]);
 
   if (!pizza) {
     return <>Loaging...</>;

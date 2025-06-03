@@ -37,16 +37,16 @@ const Cart: React.FC<CartProps> = ({ id }) => {
     setIsRegistration(false);
   };
 
-  const ClickToLogIn = () => {
-    return (
-      <AuthForm
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-        title="Log in"
-        onSwitchToRegistration={() => {}}
-      />
-    );
-  };
+  // const ClickToLogIn = () => {
+  //   return (
+  //     <AuthForm
+  //       isOpen={isModalOpen}
+  //       onClose={() => setModalOpen(false)}
+  //       title="Log in"
+  //       onSwitchToRegistration={() => {}}
+  //     />
+  //   );
+  // };
 
   const [isModalOpen, setModalOpen] = useState(false);
 
