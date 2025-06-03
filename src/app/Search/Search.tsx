@@ -17,12 +17,14 @@ const Search: React.FC = () => {
     inputRef.current?.focus();
   };
 
-  const updateSearchValue = React.useCallback(
-    debounce((str: string) => {
-      dispatch(setSearchValue(str));
-    }, 250),
+  const updateSearchValue = React.useMemo(
+    () =>
+      debounce((str: string) => {
+        dispatch(setSearchValue(str));
+      }, 250),
     [dispatch]
   );
+
   React.useEffect(() => {
     return () => {
       updateSearchValue.cancel();
