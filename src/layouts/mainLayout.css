@@ -1,0 +1,11 @@
+.verification-message {
+  background-color: #fff3cd;
+  color: #fe5f1e;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: -40px;
+  border: 1px solid #ffeeba;
+  font-weight: 600;
+
+  text-align: center;
+}

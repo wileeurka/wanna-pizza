@@ -1,0 +1,334 @@
+@import "./../variables";
+
+.button {
+  display: inline-block;
+  background-color: $orange;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
+  border: 1px solid transparent;
+  @include noselect();
+
+  &,
+  span {
+    color: #fff;
+  }
+
+  i,
+  span,
+  path,
+  svg {
+    transition: all $duration ease-in-out;
+  }
+
+  &:hover {
+    background-color: darken($orange, 8%);
+  }
+
+  &:active {
+    background-color: darken($orange, 12%);
+    transform: translateY(1px);
+  }
+
+  &--circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+    border-width: 2px;
+  }
+
+  &--black {
+    background-color: $black;
+
+    &:hover,
+    &:active {
+      background-color: lighten($color: $black, $amount: 10);
+    }
+  }
+
+  &--outline {
+    background-color: #fff;
+    border-color: $orange;
+    &,
+    span {
+      color: $orange;
+    }
+
+    svg {
+      path {
+        fill: $orange;
+      }
+    }
+
+    &:hover {
+      background-color: $orange;
+
+      &,
+      span {
+        color: #fff;
+      }
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &:active {
+      background-color: darken($orange, 8%);
+    }
+  }
+
+  &__delimiter {
+    width: 1px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  &--add {
+    svg {
+      margin-right: 2px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &:hover {
+      i {
+        background-color: #fff;
+        color: $orange;
+      }
+    }
+
+    i {
+      display: inline-block;
+      border-radius: 30px;
+      background-color: $orange;
+      color: #fff;
+      font-weight: 600;
+      width: 22px;
+      height: 22px;
+      font-style: normal;
+      font-size: 13px;
+      line-height: 22px;
+      position: relative;
+      top: -1px;
+      left: 3px;
+    }
+  }
+
+  &--cart {
+    display: flex;
+    align-items: center;
+    line-height: 23px;
+    padding: 12px 25px;
+
+    svg {
+      margin-right: 8px;
+      margin-bottom: 1px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+}
+
+.button--login {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  left: 70%;
+  top: 50%;
+  padding: 12px 25px;
+  padding-right: -10px;
+  border: 1px solid #fe5f1e;
+
+  span {
+    color: #fe5f1e;
+  }
+
+  svg {
+    margin-left: 8px;
+    margin-bottom: -1px;
+    path {
+      fill: #fe5f1e;
+      stroke: #fe5f1e;
+    }
+  }
+}
+
+.button--login:hover,
+.button--login:focus {
+  span {
+    color: #fff;
+  }
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+
+  .button--login:active {
+    background-color: #fe5f1e;
+    span {
+      color: #fff;
+    }
+    svg {
+      path {
+        fill: #fff;
+        stroke: #fff;
+      }
+    }
+  }
+}
+
+.button--login.button--active {
+  background-color: #fe5f1e;
+  span {
+    color: #fff;
+  }
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+}
+
+.button--login-on-cart {
+  background-color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 12px 40px;
+  border: 1px solid #fe5f1e;
+  margin-top: 35px;
+
+  span {
+    color: #fe5f1e;
+  }
+
+  svg {
+    margin-left: 10px;
+    margin-bottom: -3px;
+    margin-right: -8px;
+    path {
+      fill: #fe5f1e;
+      stroke: #fe5f1e;
+    }
+  }
+}
+
+.button--login-on-cart:hover,
+.button--login-on-cart:focus {
+  span {
+    color: #fff;
+  }
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+
+  .button--login-on-cart:active {
+    background-color: #fe5f1e;
+    span {
+      color: #fff;
+    }
+    svg {
+      path {
+        fill: #fff;
+        stroke: #fff;
+      }
+    }
+  }
+}
+
+.button--login-on-cart.button--active {
+  background-color: #fe5f1e;
+  span {
+    color: #fff;
+  }
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+}
+
+.button--logout {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border: 1px solid #fe5f1e;
+
+  span {
+    color: #fe5f1e;
+  }
+  svg {
+    margin-left: 10px;
+    color: #fe5f1e;
+  }
+}
+
+.button--logout:hover,
+.button--logout:focus {
+  background-color: #fe5f1e;
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+  span {
+    color: #fff;
+  }
+}
+
+.button--logout:active {
+  background-color: #fe5f1e;
+  color: #fff;
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+}
+
+.button--logout.button--active {
+  background-color: #fe5f1e;
+  color: #fff;
+  svg {
+    path {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+}
