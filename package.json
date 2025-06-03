@@ -2,7 +2,7 @@
   "name": "wanna-pizza",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/home",
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "@testing-library/jest-dom": "^5.17.0",
