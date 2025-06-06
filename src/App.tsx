@@ -3,7 +3,7 @@ import "./App.css";
 import "./scss/app.scss";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Cart from "./pages/Cart";
 import FullPizza from "./pages/FullPizza";
 import MainLayout from "./layouts/MainLayout";
@@ -13,12 +13,12 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Navigate to="/home" replace />} />
         <Route path="home" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="cart" element={<Cart />} />
         <Route path="pizza/:id" element={<FullPizza />} />
         <Route path="add-pizza" element={<AddPizzaForm />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
